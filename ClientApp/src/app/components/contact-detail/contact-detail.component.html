@@ -1,0 +1,62 @@
+<form (submit)="onSaveContact()">
+  <div class="alert alert-danger" role="alert" *ngIf="errors.length > 0">
+    <ul>
+      <li *ngFor="let error of errors">
+        {{ error }}
+      </li>
+    </ul>
+  </div>
+
+  <h3>Contact detail</h3>
+  <hr />
+
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="name" [(ngModel)]="contact.name" name="contact.name" required>
+  </div>
+  <div class="form-group">
+    <label for="surname">Surname</label>
+    <input type="text" class="form-control" id="surname" [(ngModel)]="contact.surname" name="contact.surname" required>
+  </div>
+  <div class="form-group">
+    <label for="email">Email address</label>
+    <input type="email" class="form-control" id="email" placeholder="example@example" [(ngModel)]="contact.email" name="contact.email" required>
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" id="password" placeholder="*******" [(ngModel)]="contact.password" name="contact.password" required>
+  </div>
+
+  <div class="form-group">
+    <label for="category">Category</label>
+    <select class="form-control" id="category" (change)="onChangeCategory($event)" [(ngModel)]="contact.categoryID" name="contact.categoryID" required>
+      <option hidden></option>
+      <option *ngFor="let item of categories" value="{{(item.id).toString()}}">{{item.name}}</option>
+    </select>
+  </div>
+
+  <div class="form-group" [ngClass]="{'d-none': contact.categoryID != 1}">
+    <label for="subcategory">Subcategory</label>
+    <select class="form-control" id="subcategory" [(ngModel)]="contact.subcategoryID" name="contact.subcategoryID">
+      <option hidden></option>
+      <option *ngFor="let item of subcategories" value="{{(item.id).toString()}}">{{item.name}}</option>
+    </select>
+  </div>
+
+  <div class="form-group" [ngClass]="{'d-none': contact.categoryID != 3}">
+    <label for="subcategory2">Subcategory</label>
+    <input type="text" class="form-control" id="subcategory2" [(ngModel)]="contact.subcategoryOther" name="contact.subcategoryOther">
+  </div>
+
+  <div class="form-group">
+    <label for="phone-number">Phone number</label>
+    <input type="text" class="form-control" id="phone-number" required [(ngModel)]="contact.phone" name="contact.phone">
+  </div>
+
+  <div class="form-group">
+    <label for="birth-date">Birth date</label>
+    <input type="date" class="form-control" id="birth-date" required [(ngModel)]="contact.birthDate" name="contact.birthDate">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Save</button>
+</form>

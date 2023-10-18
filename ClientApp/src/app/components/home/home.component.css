@@ -1,0 +1,34 @@
+
+
+.table th {
+  color: #6D838A;
+}
+
+.table tbody tr {
+    background-color: #fff;
+}
+
+th, td {
+  border: none;
+}
+
+
+tbody th, td {
+  padding: 12px;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0 15px;
+  text-align: center;
+}
+
+table thead tr {
+  top: 10px;
+  position: relative;
+}
+
+td i:hover {
+  cursor: pointer;
+  color: #687ab0;
+}

@@ -1,0 +1,18 @@
+form {
+    background-color: #fff;
+    padding: 30px 20px;
+    width: 60%;
+    margin: auto;
+}
+
+  form h3 {
+    color: #7989b9;
+  }
+
+  form hr {
+    color: #687ab0;
+  }
+
+.form-group {
+    margin-bottom: 10px;
+}
